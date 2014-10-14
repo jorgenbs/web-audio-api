@@ -1,0 +1,24 @@
+<h2>Eksempelet forklart</h2>
+
+<pre><code>
+for (var i = 0; i &lt; rounds; i++) {
+  var source = context.createMediaElementSource(el);
+
+  source.connect(gainNode);
+  gainNode.connect(compressorNode);
+  compressorNode.connect(context.destination);
+
+  //hastighet
+  source.playbackRate.value = 1 + Math.random() * random2;
+
+  source.start(time + i * interval + Math.random() * random);
+}
+</code></pre>
+
+<img src="bilder/node-n-sources.png"/>
+
+<aside class="notes">
+  <p>Loopes over antall skudd</p>
+  <p>koble effektnoder</p>
+  <p>playbackRate som å spile. Øker pitch (tonehøyde)</p>
+</aside>

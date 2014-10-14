@@ -1,0 +1,24 @@
+<script type="text/javascript" src="examples/MachineGun.js"></script>
+
+<h2>Lydeffekter</h2>
+<pre><code>
+&lt;audio src=&quot;examples/machinegun/m4a1.mp3&quot; controls&gt;&lt;/audio&gt;
+</code></pre>
+
+<audio src="examples/machinegun/m4a1.mp3" id="gun-sample" controls></audio>
+
+<pre><code>
+var audioElement = document.querySelector('#gun-sample');
+var mediaSourceNode = context.createMediaElementSource(audioElement);
+</code></pre>
+
+<button onclick="mgun.shootRound(0, 10, 0.05);">Long burst M4A1</button>
+<br/>
+<button onclick="mgun.shootRound(0, 10, 0.08, 0.05);">Time-randomized M4A1</button>
+<button onclick="mgun.shootRound(0, 10, 0.08, 0, 1);">Pitch-randomized M4A1</button>
+
+<aside class="notes">
+    <p>Sette opp en kø av sources.</p>
+    <p>Høres unaturlig ut forid det er nøyaktig mellomrom</p>
+    <p>Mer tilfeldighet i avspillingen mer naturlig ut</p>
+</aside>

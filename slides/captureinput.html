@@ -1,0 +1,24 @@
+<h2>WebRTC + WebAudioAPI</h2>
+
+MediaStream API er en del av WebRTC som lar deg hente brukerens video/audio datastrøm fra webcam/mikrofon.
+
+<pre><code>
+//cross-browser polyfill
+navigator.getUserMedia = ( navigator.getUserMedia ||
+                     navigator.webkitGetUserMedia ||
+                     navigator.mozGetUserMedia ||
+                     navigator.msGetUserMedia );
+
+navigator.getUserMedia( {audio: true, video: false}, function callback(stream) {
+  var microphoneNode = context.createMediaStreamSource(stream);
+  
+  //gjør noe nyttig...
+  microphoneNode.connect(analyser);
+});
+</pre></code>
+
+<div style="color: #71e9f4">Opptak, instrument stemmning, input-drevet UX, Audio-Analyse</div>
+<aside class="notes">
+  <p>appear.in</p>
+  <p>nettleser ber om tillatelse</p>
+</aside>

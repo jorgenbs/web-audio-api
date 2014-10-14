@@ -1,0 +1,24 @@
+<h2>analyser node</h2>
+
+<small>
+<p>Tilbyr frekvens og tidsdomene analyse informasjon i sanntid</p>
+<p><span style="color: #71e9f4">Visualisering</span> og <span style="color: #71e9f4">Analysering</span></p>
+</small>
+
+<iframe src="http://borismus.github.io/spectrogram/" width="500px" height="300px"></iframe>
+
+<pre><code>
+  var analyser = context.createAnalyser();
+  analyser.fftSize = 2048;
+  var bufferLength = analyser.frequencyBinCount;
+  var dataArray = new Uint8Array(bufferLength);
+  analyser.getByteTimeDomainData(dataArray);
+</code></pre>
+
+<br/>
+
+<aside class="notes">
+    <p>Siste node-typen jeg viser</p>
+    <p>litt mer avansert, men slipper å implementere fast fourier transformasjon</p>
+    <p>Henter input fra mikrofonen min</p>
+</aside>

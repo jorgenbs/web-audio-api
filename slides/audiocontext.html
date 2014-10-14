@@ -1,0 +1,18 @@
+<h2>Komme i gang med Web Audio API</h2>
+
+<pre><code>
+//crossbrowser Webkit + Blink
+window.AudioContext = (window.AudioContext || window.webkitAudioContext);
+
+var context = new AudioContext();
+</code></pre>
+
+<img src="bilder/context-simple.png"/>
+<br/>
+<small class="caption">audio routing graph</small>
+
+<aside class="notes">
+    <p>Kun en context per side</p>
+    <p>Destination er ReadOnly.</p>
+    <p>Mozilla Audio Data API</p>
+</aside>

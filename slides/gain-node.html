@@ -1,0 +1,23 @@
+<h2>Eksempel på Gain (Volum) effekt node</h2>
+
+<img src="bilder/node-gain.png" />
+
+<br/>
+
+Eksempel på å koble en gain effekt:
+
+<pre><code>
+var source = context.createOscillator();
+var gainNode = context.createGain();
+gainNode.gain = 0.5;
+
+source.connect(gainNode);
+
+gainNode.connect(context.destination);
+</code></pre>
+
+
+<aside class="notes">
+  <p>Programmatisk eksempel</p>
+  <p>Viktig å merke koblingene</p>
+</aside>

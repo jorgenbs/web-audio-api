@@ -1,0 +1,16 @@
+<h2>Schedule playback</h2>
+
+<p>SetTimeout() og SetInterval() er unnøyaktig</p>
+<p>3-4ms presisjonstap, og utsettes for browser throttling</p>
+<br/>
+<p>AudioContext har eget hardware timestamp som starter på 0, og er read-only.</p>
+<p>Hver source kjører uforstyrret på egen tråd</p>
+
+<pre><code>
+  //setter avspillig n-sekund i fortiden
+  source.start(n);
+</pre></code>
+
+<aside class="notes">
+    <p>Lar deg spille lyder i rytme siden de deler samme timer.</p>
+</aside>

@@ -1,0 +1,50 @@
+<script type="text/javascript">
+function start() {
+  window.oscillator = context.createOscillator();
+  window.oscillator.start(0);
+
+  window.oscillatorOn = function () {
+
+    context.source = oscillator;
+    oscillator.connect(context.destination);
+
+  }
+
+  window.oscillatorOff = function() {
+    context.source.disconnect(0);
+  }
+
+  window.oscillatorFreq = function(n) {
+    window.oscillator.frequency.value = n;
+  }
+};
+</script>
+
+<body onLoad="start()">
+<h2>Eksempel på Oscillator som Source</h2>
+
+<pre><code>
+var context = new AudioContext();  
+var source = context.createOscillator();
+
+source.connect(context.destination);
+
+source.start();
+</code></pre>
+
+<button onClick="oscillatorOn()">PÅ</button>
+<button onClick="oscillatorOff()">AV</button>
+
+<input type="range" min="100" max="1000" step="0.01" value="440" oninput="oscillatorFreq(this.value);">
+
+<pre><code>
+oscillator.frequency.value = n; //Hz 440 default
+</code></pre>
+
+
+<aside class="notes">
+    <p>Det er audiocontext-objekt som tilbyr alle metodene</p>
+    <p>Skipper audiocontext-oppretting i senere eks.</p>
+</aside>
+
+</body>
